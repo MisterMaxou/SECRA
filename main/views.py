@@ -75,7 +75,7 @@ def co_user_2(request):
 
 
 def not_found_error(request):
-   return render(request, 'main/404_error.html')
+   return render(request, 'main/not_found_error.html')
 
 # def delete(request, link):
 #     work = Work.objects.filter(link=link)[0]

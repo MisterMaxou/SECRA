@@ -23,7 +23,8 @@ Ici, éditez le texte de {{work.user}}
 <p>Version de {{v.user}} du
 {{v.creation_date}}</p>
 <br>
-
+{% autoescape off %}{{v.text}}{% endautoescape %}
+<br/>
 {{v.text}}
 <br>
 
