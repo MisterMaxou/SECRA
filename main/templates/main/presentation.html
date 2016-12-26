@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Présentation{% endblock %}
+
+{% block content %}
+<h1>Méga site</h1>
+
+<p>Concept
+<br>
+Je m'inscris
+
+<form action="{% url 'homepage' %}" method="post">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <input type="submit" value="Submit" />
+
+</form>
+
+Je me connecte
+
+
+<form method="post"  role="form" action="{% url 'login' %}">
+{% csrf_token %}
+                    <input type="text" name="username_for_log" placeholder="Pseudo" />
+                    <input type="password" name="password_for_log" placeholder="Mot de passe" />
+
+<input type="submit" value="Connexion" /></form>
+{% if invalid_auth %}
+Problème de connexion. Contactez nosbrouillons@gmail.com si le problème se veut aussi insoluble que du mauvais café.
+{% endif %}
+
+</p>
+
+<!--
+
+Essayer avec un simple pseudo
+<form action="{% url 'homepage' %}" method="post">
+    {% csrf_token %}
+    {{pseudo_form.as_p}}
+    <input type="submit" value="Essayer avec ce pseudo" />
+</form>
+ -->
+{% endblock %}

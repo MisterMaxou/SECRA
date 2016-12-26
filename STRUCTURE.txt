@@ -1,0 +1,59 @@
+aboutus
+contact
+desposit
+contribute
+main
+	Project
+		OneToMany Version
+		ManyToOne User
+		CharField title
+		CharField description
+		DateTimeField date autonow
+
+	Version
+		HTMLField (see tinymce)
+		ManyToOne User
+		DateTimeField date autonow
+		ManyToOne Project
+chat
+
+
+Wording
+
+Fr:
+Oeuvre / Création
+Version
+
+
+
+
+PAGE
+
+encart user
+liens Déposer, Contribuer, Contact + Mon Profil dans l'encart User
+
+
+
+Nom des liens :
+
+subscribe
+logout
+drop
+contribute
+	propose_subscription
+contact
+aboutus
+account
+
+continuer avec pseudo -> créer user -> login
+
+Comment faire pour les liens ?
+Deux idées :
+- création de liens textuels proches des titres
+- passage en argument. Comment partager un texte avec quelqu'un ?
+    - création de liens chiffrés, "accès" gérables par les auteurs
+    - bouton "partager"
+Sol choisie : un lien super long par texte. Resettable au cas où.
+
+    
+

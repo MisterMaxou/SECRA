@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{request.user}}{% endblock %}
+
+{% block content %}
+<h1>Vos oeuvres :</h1>
+<br>
+{% for w in works %}
+<a href="{% url 'consult' w.link %}">{{w.title}}</a>
+<br>
+{% empty %}
+Aucune oeuvre pour le moment
+{% endfor %}
+<a href="{% url 'drop' %}">Déposez !</a>
+<h1>Vos contributions :</h1>
+{% for v in contributed_works %}
+<a href="{% url 'consult' v.link %}">{{v.title}}</a>
+{% empty %}
+Aucune contribution pour le moment
+{% endfor %}
+<a href="{% url 'contribute' %}">Contribuez !</a>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Edit{% endblock %}
+
+{% block content %}
+<!-- TODO : Comprendre pourquoi ce bloc de texte décale de bloc content sur la page
+ --><h1>Édition</h1>
+
+{% if request.user == work.user %}
+<p><a href="{% url 'edit_work' work.link %}">Modifier le projet</a></p>
+{% endif %}
+
+
+Ici, éditez le texte de {{work.user}}
+<br>
+{{work.title}}
+<br>
+{{work.presentation}}
+<br>
+
+{% for v in versions %}
+
+<p>Version de {{v.user}} du
+{{v.creation_date}}</p>
+<br>
+
+{{v.text}}
+<br>
+
+{% endfor %}
+
+
+<form action="{% url 'edit' work.link %}" method="post">
+
+    {% csrf_token %}
+
+    {{ version_form.as_p }}
+
+
+
+    <input type="submit" value="Contribuer" />
+
+</form>
+
+
+{% endblock %}

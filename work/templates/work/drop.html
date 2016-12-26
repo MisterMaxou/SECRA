@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+{% block title %}Déposer{% endblock %}
+{% block link %}{{version_form.media}}
+
+{% endblock %}
+
+{% block content %}
+<h1>Déposer</h1>
+
+C'est ici que vous déposez le bébé. Un poème écrit il y a deux ans, auquel il manquait un rien qui vous échappe ? Votre prochain article dans Le Monde, qui manque quand même un peu de panache alors qu'il est à la une ? Non, je sais, cette nouvelle incroyable que vous gardez précieusement sur un carnet, mais qui, si elle était améliorée d'un poil, ferait passer Balzac et Maupassant pour BHL ! Bref, bien que je m'égare çà et là, pour déposer votre écrit, quel qu'il soit, c'est bien ici !
+<br/>
+<br/>
+
+<form action="{% url 'drop' %}" method="post">
+
+    {% csrf_token %}
+
+    {{ work_form.as_p }}
+
+    {{ version_form.as_p }}
+
+
+
+    <input type="submit" value="Déposer" />
+
+</form>
+
+<script type="text/javascript">
+
+</script>
+{% endblock %}
