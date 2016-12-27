@@ -148,11 +148,11 @@ USE_TZ = True
 # MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
 
-STATIC_URL = '/static/'
+STATIC_URL = '/assets/static/'
 
 STATICFILES_DIRS = [
     # Need to specify the base static dir, outside the app. In debug mode, each app fetches the static files in app/"BLUB" with BLUB what is just below.
-    os.path.join(BASE_DIR, "assets/static"),
+    os.path.join(BASE_DIR, "static"),
 
 ]
 
