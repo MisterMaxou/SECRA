@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '))^q$1y3d8=33q_bciqi4s4_#*=!-+8c_b7fxh2s*8e=n%7fbc'
 
-PROD = False
+PROD = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = not PROD
@@ -148,16 +148,14 @@ USE_TZ = True
 # MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
 
-STATIC_URL = '/assets/static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    # Need to specify the base static dir, outside the app. In debug mode, each app fetches the static files in app/"BLUB" with BLUB what is just below.
     os.path.join(BASE_DIR, "static"),
-
 ]
 
 # Pompe sur getstarted, pour test.
-STATIC_ROOT = os.path.join(BASE_DIR, "assets/static/")
+STATIC_ROOT = "/static/" # os.path.join(BASE_DIR, "assets/static/")
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "assets/media/")
 
