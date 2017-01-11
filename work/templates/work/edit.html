@@ -1,20 +1,31 @@
 {% extends "base.html" %}
 {% block title %}Gérer son compte{% endblock %}
 {% block content %}
-<h1>Éditer votre projet</h1>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-xs-center">
+                <h1>Éditer votre projet</h1>
 
 
-<form onkeypress={document.getElementById('confirmation').style.display='none'}  action="{% url 'edit_work' link %}" method="post">
+                <form onkeypress={document.getElementById('confirmation').style.display='none'}  action="{% url 'edit_work' link %}" method="post">
 
-    {% csrf_token %}
+                    {% csrf_token %}
 
-    {{ form.as_p }}
+                    {{ form.as_p }}
 
-    <input type="submit" value="Submit" />
-    {% if edit %}
-<p style="color:green" id="confirmation">Modification enregistrée !</p>
+                    <input type="submit" value="Submit" />
+                    {% if edit %}
+                    <p style="color:green" id="confirmation">Modification enregistrée !</p>
 
-    {% endif %}
-</form>
+                    {% endif %}
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
 

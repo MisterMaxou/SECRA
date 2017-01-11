@@ -3,26 +3,37 @@
 {% block title %}Choix projet{% endblock %}
 
 {% block content %}
-<!-- TODO : Comprendre pourquoi ce bloc de texte décale de bloc content sur la page
- --><h1>Choix projet</h1>
-Quel projet vous attire le plus ?
-<br>
-{% for w in works %}
-<a href="{% url 'edit' w.link %}">
-<div class="col-sm-4">
-{{w}}
-<br>
-<p>{{w.get_nbr_contributors}} contributeur{{w.get_nbr_contributors | pluralize}}</p>
-<br>
-{{w.description}}
-</div></a>
-{% endfor %}
-{% if lack_of_works > 0 %}
-<a href="{% url 'drop' %}">
-<div id='lack'>
-Nous manquons actuellement de travaux. Donc si vous avez un petit écrit que vous souhaitez améliorer, n'hésitez pas, et cliquez ici pour le déposer. :)
-</div>
-{% endif %}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-xs-center">
+
+                <h1>Choix projet</h1>
+                Quel projet vous attire le plus ?
+                <br>
+                {% for w in works %}
+                <a href="{% url 'edit' w.link %}">
+                <div class="col-sm-4">
+                {{w}}
+                <br>
+                <p>{{w.get_nbr_contributors}} contributeur{{w.get_nbr_contributors | pluralize}}</p>
+                <br>
+                {{w.description}}
+                </div></a>
+                {% endfor %}
+                {% if lack_of_works > 0 %}
+                <a href="{% url 'drop' %}">
+                <div id='lack'>
+                Nous manquons actuellement de travaux. Donc si vous avez un petit écrit que vous souhaitez améliorer, n'hésitez pas, et cliquez ici pour le déposer. :)
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <script>
 document.getElementById('lack').class = "col-sm-" + {{lack_of_works}}*4
 </script>

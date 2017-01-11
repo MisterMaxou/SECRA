@@ -1,19 +1,31 @@
 {% extends "base.html" %}
 {% block title %}Gérer son compte{% endblock %}
 {% block content %}
-<h1>Gestion de compte</h1>
 
-<form onkeypress={document.getElementById('confirmation').style.display='none'}  action="/account/" method="post">
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-xs-center">
 
-    {% csrf_token %}
+                <h1>Gestion de compte</h1>
 
-    {{ form.as_p }}
+                <form onkeypress={document.getElementById('confirmation').style.display='none'}  action="/account/" method="post">
 
-    <input type="submit" value="Submit" />
-    {% if edit %}
-<p style="color:green" id="confirmation">Présentation enregistrée !</p>
+                    {% csrf_token %}
 
-    {% endif %}
-</form>
+                    {{ form.as_p }}
+
+                    <input type="submit" value="Submit" />
+                    {% if edit %}
+                    <p style="color:green" id="confirmation">Présentation enregistrée !</p>
+
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 {% endblock %}
 

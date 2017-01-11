@@ -9,19 +9,27 @@
 
 {% autoescape off %}{{view_of_versions.content}}{% endautoescape %}
 
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-xs-center">
+
+                <form action="{% url 'edit' work.link %}" method="post">
+
+                    {% csrf_token %}
+
+                    {{ version_form.as_p }}
 
 
-<form action="{% url 'edit' work.link %}" method="post">
 
-    {% csrf_token %}
+                    <input type="submit" value="Contribuer" />
 
-    {{ version_form.as_p }}
+                </form>
 
-
-
-    <input type="submit" value="Contribuer" />
-
-</form>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 {% endblock %}
