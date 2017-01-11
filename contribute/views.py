@@ -6,6 +6,7 @@ from main.models import Work, Version
 from main.forms import VersionForm
 import random
 from django.contrib.auth.decorators import login_required
+from work.views import render_versions
 
 @login_required
 def contribute(request):
@@ -25,6 +26,7 @@ def choose_text(request):
 def edit(request, link):
     work = Work.objects.filter(link=link)[0]
     versions = Version.objects.filter(work=work)
+    view_of_versions = render_versions(request, link)
 
     if request.method == 'POST':  # S'il s'agit d'une requête POST
         version_form = VersionForm(request.POST)  # Nous reprenons les données
@@ -36,7 +38,7 @@ def edit(request, link):
         return redirect('consult', link)
     else: # Si ce n'est pas du POST, c'est probablement une requête GET
         version_form = VersionForm()  # Nous créons un formulaire vide
-        return render(request, 'contribute/edit.html', {'work':work, 'versions':versions, 'version_form':version_form})
+        return render(request, 'contribute/edit.html', {'work':work, 'versions':versions, 'version_form':version_form, 'view_of_versions':view_of_versions})
 
 
 

@@ -3,39 +3,23 @@
 {% block title %}{{work.title}}{% endblock %}
 
 {% block content %}
-<!-- TODO : Comprendre pourquoi ce bloc de texte décale de bloc content sur la page
- --><h1>Consultation</h1>
-
-{% if request.user == work.user %}
-<p><a href="{% url 'edit_work' work.link %}">Modifier le projet</a></p>
-{% endif %}
-
-<br>
-{{work.title}}
-<br>
-{{work.presentation}}
-<br>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-xs-center">
+                 <h1>Consultation</h1>
+                {% if request.user == work.user %}
+                <p><a href="{% url 'edit_work' work.link %}">Modifier le projet</a></p>
+                {% endif %}
 
 
-<div id="displayed"></div>
+                {% autoescape off %}{{view_of_versions.content}}{% endautoescape %}
 
 
-
-{% for index, v in versions %}
-<div id="version{{index}}" style="display:none">
-<p>Version no {{index}} de {{v.user}} du
-{{v.creation_date}}</p>
-<br>
-
-{% autoescape off %}{{v.text}}{% endautoescape %}
-</div><br/>
-
-{% endfor %}
-
-<script>
-var length = {{length}} - 1;
-var actual = length - 1;
-document.getElementById("displayed").innerHTML=document.getElementById("version"+length).innerHTML;</script>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 {% endblock %}

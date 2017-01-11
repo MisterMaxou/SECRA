@@ -41,14 +41,26 @@ def edit(request, link):
     return render(request, 'work/edit.html', {'form':form, 'edit':False,'link':link})
 
 
-def consult(request, link):
+# def consult(request, link):
+#     work = Work.objects.filter(link=link)[0]
+#     # user_has_rights = request.user.is_staff() | work.user == request.user
+#     versions = list(Version.objects.filter(work=work))
+#     length = len(versions)
+#     versions = enumerate(versions)
+#     return render(request, 'work/consult.html', {'work':work, 'versions':versions, 'length':length})
+
+
+def render_versions(request, link):
     work = Work.objects.filter(link=link)[0]
     # user_has_rights = request.user.is_staff() | work.user == request.user
     versions = list(Version.objects.filter(work=work))
     length = len(versions)
     versions = enumerate(versions)
-    return render(request, 'work/consult.html', {'work':work, 'versions':versions, 'length':length}) # , 'user_has_rights':user_has_rights})
+    return render(request, 'work/render_versions.html', {'work':work, 'versions':versions, 'length':length})
 
 
+def consult(request, link):
+    view_of_versions = render_versions(request, link)
+    return render(request, 'work/consult.html', {'view_of_versions':view_of_versions})
 
 
