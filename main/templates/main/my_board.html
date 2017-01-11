@@ -11,14 +11,18 @@
 
                 <h1>Vos oeuvres :</h1>
 
-                <br>
+                </br>
                 {% for w in works %}
                 <a href="{% url 'consult' w.link %}">{{w.title}}</a>
+                <p>{{w.get_nbr_contributors}} contributeurs pour {{w.get_nbr_versions}} versions</p>
                 <br>
                 {% empty %}
                 Aucune oeuvre pour le moment
                 {% endfor %}
                 <a href="{% url 'drop' %}">Déposez !</a>
+
+                </br>
+
                 <h1>Vos contributions :</h1>
                 {% for v in contributed_works %}
                 <a href="{% url 'consult' v.link %}">{{v.title}}</a>

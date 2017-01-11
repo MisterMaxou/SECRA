@@ -29,6 +29,9 @@ class Work(models.Model):
     def get_nbr_contributors(self):
         contributors_id = Version.objects.filter(work=self).values('user').distinct()
         return len(contributors_id)
+    def get_nbr_versions(self):
+        versions = Version.objects.filter(work=self)
+        return len(versions)
 
 
 
