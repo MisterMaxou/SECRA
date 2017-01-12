@@ -10,6 +10,7 @@
                  <h1>Consultation</h1>
                 {% if request.user == work.user %}
                 <p><a href="{% url 'edit_work' work.link %}">Modifier le projet</a></p>
+
                 {% endif %}
 
 

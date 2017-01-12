@@ -55,8 +55,9 @@ def render_versions(request, link):
     # user_has_rights = request.user.is_staff() | work.user == request.user
     versions = list(Version.objects.filter(work=work))
     length = len(versions)
+    participated = versions[-1].user != work.user
     versions = enumerate(versions)
-    return render(request, 'work/render_versions.html', {'work':work, 'versions':versions, 'length':length})
+    return render(request, 'work/render_versions.html', {'work':work, 'versions':versions, 'length':length, 'participated':participated})
 
 
 def consult(request, link):

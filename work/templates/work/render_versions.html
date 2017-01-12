@@ -1,5 +1,10 @@
 {% if request.user == work.user %}
-<p><a href="{% url 'edit_work' work.link %}">Modifier le projet</a></p>
+<ul class="pager active">
+    <li><a href="{% url 'edit_work' work.link %}">Modifier le projet</a></li>
+    {% if participated %}
+        <li><a href="{% url 'edit' work.link %}">Proposer une nouvelle version</a></li>
+    {% endif %}
+</ul>
 {% endif %}
 
 <br>
