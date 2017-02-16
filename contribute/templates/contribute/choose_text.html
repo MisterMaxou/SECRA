@@ -11,21 +11,23 @@
 
                 <h1>Choix projet</h1>
                 Quel projet vous attire le plus ?
-                <br>
+                <br/><br/>
                 {% for w in works %}
                 <a href="{% url 'edit' w.link %}">
-                <div class="col-sm-4">
-                {{w}}
+                <div class="col-sm-4" style="height:400px">
+                <div class="workBlock">
+                <p>{{w}}</p>
                 <br>
                 <p>{{w.get_nbr_contributors}} contributeur{{w.get_nbr_contributors | pluralize}}</p>
                 <br>
-                {{w.description}}
-                </div></a>
+                <p>{{w.description}}</p>
+                </div></div></a>
                 {% endfor %}
                 {% if lack_of_works > 0 %}
                 <a href="{% url 'drop' %}">
                 <div id='lack'>
                 Nous manquons actuellement de travaux. Donc si vous avez un petit écrit que vous souhaitez améliorer, n'hésitez pas, et cliquez ici pour le déposer. :)
+
                 </div>
                 {% endif %}
             </div>
@@ -35,6 +37,6 @@
 
 
 <script>
-document.getElementById('lack').class = "col-sm-" + {{lack_of_works}}*4
+document.getElementById('lack').class = "col-sm-" + {{lack_of_works}}*4 + " noWorkBlock"
 </script>
 {% endblock %}

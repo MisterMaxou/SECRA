@@ -7,30 +7,48 @@
 <section id="content">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-xs-center">
+            <div class="col-lg-6 text-xs-center">
 
-                <h1>Vos oeuvres :</h1>
+                <h1>Vos oeuvres</h1>
+                <div>
+                <a href="{% url 'drop' %}"><button type="button" class="btn btn-secondary">Déposer</button></a>
+                </div>
+                <br/>
 
-                </br>
                 {% for w in works %}
-                <a href="{% url 'consult' w.link %}">{{w.title}}</a>
-                <p>{{w.get_nbr_contributors}} contributeurs pour {{w.get_nbr_versions}} versions</p>
-                <br>
+                <a href="{% url 'consult' w.link %}">
+                    <div class="workBlock">
+                    {{w.title}}
+                    <p>{{w.get_nbr_contributors}} contributeurs pour {{w.get_nbr_versions}} versions</p>
+                    <br>
+                    </div>
+                </a>
                 {% empty %}
                 Aucune oeuvre pour le moment
                 {% endfor %}
-                <a href="{% url 'drop' %}">Déposez !</a>
+            </div>
 
-                </br>
+            <div class="col-lg-6 text-xs-center">
 
-                <h1>Vos contributions :</h1>
+                <h1>Vos contributions</h1>
+                <div>
+                <a href="{% url 'contribute' %}"><button type="button" class="btn btn-secondary">Contribuer</button></a>
+                </div>
+                <br/>
+
                 {% for v in contributed_works %}
-                <a href="{% url 'consult' v.link %}">{{v.title}}</a>
+                <a href="{% url 'consult' v.link %}">
+                    <div class="workBlock">
+                    {{v.title}}
+                    <p>{{v.get_nbr_contributors}} contributeurs pour {{v.get_nbr_versions}} versions</p>
+                    <br>
+                    </div>
+                </a>
                 {% empty %}
                 Aucune contribution pour le moment
                 {% endfor %}
-                <a href="{% url 'contribute' %}">Contribuez !</a>
             </div>
+
         </div>
     </div>
 </section>

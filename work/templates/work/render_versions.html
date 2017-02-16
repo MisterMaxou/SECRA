@@ -27,8 +27,7 @@
 <p>Version no {{index}} de {{v.user}} du
 {{v.creation_date}}</p>
 <br>
-
-{% autoescape off %}{{v.text}}{% endautoescape %}
+<div class="text">{% autoescape off %}{{v.text}}{% endautoescape %}</div>
 </div><br/>
 
 {% endfor %}

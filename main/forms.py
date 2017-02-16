@@ -11,8 +11,7 @@ class WorkForm(forms.ModelForm):
         fields = ['public', 'title', 'description']
 
 class VersionForm(forms.ModelForm):
-    # content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
-    # text = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
+    text = forms.CharField(widget=TinyMCE(attrs={'cols': 100, 'rows': 20, 'id':'version_form', 'placeholder':'Entrez ici la nouvelle version du texte auquel vous voulez contribuer.'}))
 
     class Meta:
         model = Version

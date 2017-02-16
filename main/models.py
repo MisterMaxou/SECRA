@@ -38,7 +38,7 @@ class Work(models.Model):
 class Version(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name='Date de création')
     user = models.ForeignKey(User, on_delete=models.CASCADE) #ATTENTION AU ON_DELETE
-    text = tinymce_models.HTMLField(verbose_name='')
+    text = tinymce_models.HTMLField(verbose_name='', blank=True)
     work = models.ForeignKey(Work, on_delete=models.CASCADE)
     def __str__(self):
         s = "Contrib de " + str(self.user) + " à " + str(self.work.title)

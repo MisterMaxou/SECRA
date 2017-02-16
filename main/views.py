@@ -52,6 +52,10 @@ def homepage(request, invalid_auth=False):
             form = empty_register_form()  # Nous créons un formulaire vide
             return render(request, 'main/presentation.html', {'form':form})
 
+
+
+
+
 @login_required
 def my_board(request):
     works = Work.objects.filter(user=request.user)

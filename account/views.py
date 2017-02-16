@@ -5,7 +5,9 @@ from django.shortcuts import redirect, render
 from account.models import ExtendedUser
 from account.forms import AutoUserForm, UserCreationFormWithMail
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def manage(request):
     if not request.user.is_authenticated():
         return redirect('/')

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}Edit{% endblock %}
+{% block link %}{{version_form.media}}{% endblock %}
 
 {% block content %}
 <!-- TODO : Comprendre pourquoi ce bloc de texte décale de bloc content sur la page
@@ -22,7 +23,7 @@
 
 
 
-                    <input type="submit" value="Contribuer" />
+                    <input class="btn" type="submit" value="Contribuer" />
 
                 </form>
 
@@ -30,6 +31,11 @@
         </div>
     </div>
 </section>
+
+<script>
+document.getElementById('version_form').value=document.getElementById('displayed').getElementsByClassName("text")[0].innerHTML
+
+</script>
 
 
 {% endblock %}

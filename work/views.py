@@ -9,17 +9,19 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def drop(request):
     if request.method == 'POST':  # S'il s'agit d'une requête POST
-        work_form = WorkForm(request.POST)  # Nous reprenons les données
-        work = work_form.save(commit=False)
-        work.user = request.user
-        work.save()
-
         version_form = VersionForm(request.POST)  # Nous reprenons les données
-        version = version_form.save(commit=False)
-        version.user = request.user
-        version.work = work
-        version.save()
+        work_form = WorkForm(request.POST)  # Nous reprenons les données
+        if version_form.is_valid():
+            work = work_form.save(commit=False)
+            work.user = request.user
+            work.save()
 
+            version = version_form.save(commit=False)
+            version.user = request.user
+            version.work = work
+            version.save()
+        else:
+            return HttpResponse(version_form.errors['text'])
         return redirect('/')
 
     else: # Si ce n'est pas du POST, c'est probablement une requête GET
