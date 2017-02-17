@@ -15,7 +15,7 @@ class Work(models.Model):
     publication_date = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name='Date de création')
     last_version_date = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name='Date de la dernière modification')
     title = models.CharField(max_length=150, verbose_name='Titre')
-    description = models.TextField(max_length=500, verbose_name='Description')
+    description = models.CharField(max_length=500, verbose_name='Description')
     user = models.ForeignKey(User, on_delete=models.CASCADE) #ATTENTION AU ON_DELETE
     public = models.BooleanField(default=True, verbose_name="Visible par d'autres personnes que les contributeurs")
     link = models.CharField(max_length=30, default=generate_link, blank=True)
@@ -38,7 +38,7 @@ class Work(models.Model):
 class Version(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name='Date de création')
     user = models.ForeignKey(User, on_delete=models.CASCADE) #ATTENTION AU ON_DELETE
-    text = tinymce_models.HTMLField(verbose_name='', blank=True)
+    text = models.TextField(verbose_name='', blank=True)
     work = models.ForeignKey(Work, on_delete=models.CASCADE)
     def __str__(self):
         s = "Contrib de " + str(self.user) + " à " + str(self.work.title)

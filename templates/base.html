@@ -21,11 +21,11 @@
 
     <!-- Custom Fonts -->
     <link href="{% static 'agency/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-<!--     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
- -->
+
     <!-- Theme CSS -->
     <link href="{% static 'agency/css/agency.min.css' %}" rel="stylesheet">
 
@@ -85,17 +85,7 @@
                         <a class="nav-link" href="{% url 'logout' %}">Déconnexion</a>
                     </li>
                     {% else %}
-                        {% comment %}
 
-                        <form method="post" class="form-inline" role="form" action="{% url 'login' %}">
-                            {% csrf_token %}
-                            <input type="text" name="username_for_log" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Pseudo" />
-                            <input type="password" name="password_for_log" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Mot de passe" />
-
-                            <input type="submit" class="btn btn-primary value="Connexion" />
-                        </form>
-
-                        {% endcomment %}
 
                     <li>
 
@@ -103,7 +93,7 @@
                             {% csrf_token %}
                             <input type="text" name="username_for_log" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Pseudo" />
                             <input type="password" name="password_for_log" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Mot de passe" />
-                            <input type="submit" class="btn btn-primary value="Connexion" />
+                            <button type="submit" class="btn btn-primary value="Connexion">Me connecter</button>
                         </form>
 
 
@@ -163,8 +153,8 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
-                        <li class="list-inline-item"><a href="#">CGU</a>
-                        </li>
+                        {% comment %}<li class="list-inline-item"><a href="#">CGU</a>
+                        </li>{% endcomment %}
                     </ul>
                 </div>
             </div>

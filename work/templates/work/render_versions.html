@@ -8,9 +8,9 @@
 {% endif %}
 
 <br>
-{{work.title}}
+<h3>{{work.title}}</h3>
 <br>
-{{work.presentation}}
+<p>{{work.presentation}}</p>
 <br>
 
 <ul class="pager active">
@@ -24,8 +24,8 @@
 
 {% for index, v in versions %}
 <div id="version{{index}}" style="display:none">
-<p>Version no {{index}} de {{v.user}} du
-{{v.creation_date}}</p>
+<h4>Version no {{index}} de {{v.user}} du
+{{v.creation_date}}</h4>
 <br>
 <div class="text">{% autoescape off %}{{v.text}}{% endautoescape %}</div>
 </div><br/>

@@ -6,6 +6,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-xs-center">
+                <button style="float: right" class="btn btn-danger btn-mini"
+                onClick="confirm_deletion()">
+                Supprimer l'oeuvre</button>
+
                 <h1>Éditer votre projet</h1>
 
 
@@ -26,6 +30,14 @@
         </div>
     </div>
 </section>
+
+<script>
+    function confirm_deletion(){
+        if(confirm("Les autres contributeurs ne garderont aucune trace de l'oeuvre, n'hésitez pas à les prévenir avant de confirmer votre suppression. Êtes-vous sûr-e de vouloir supprimer cette oeuvre ?")) {
+                window.location.replace("{% url 'delete' link %}");}
+    }
+
+</script>
 
 {% endblock %}
 

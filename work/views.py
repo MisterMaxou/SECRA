@@ -66,4 +66,10 @@ def consult(request, link):
     view_of_versions = render_versions(request, link)
     return render(request, 'work/consult.html', {'view_of_versions':view_of_versions})
 
+def delete(request, link):
+    work = Work.objects.filter(link=link)[0]
+    # user_has_rights = request.user.is_staff() | work.user == request.user
+    if work.user == request.user:
+        work.delete()
+    return redirect('/')
 

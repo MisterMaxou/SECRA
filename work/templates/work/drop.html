@@ -2,7 +2,7 @@
 
 
 {% block title %}Déposer{% endblock %}
-{% block link %}{{version_form.media}}
+{% block link %}
 
 {% endblock %}
 
@@ -37,8 +37,7 @@
         </div>
     </div>
 </section>
-{% load static %}
-<script type="text/javascript" src="{% static 'tiny_mce/tiny_mce.js' %}">
+<script type="text/javascript" src="//cloud.tinymce.com/stable/tinymce.min.js"></script><script>
 tinymce.init({
   selector: 'textarea',
   height: 500,
