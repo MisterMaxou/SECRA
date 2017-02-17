@@ -36,17 +36,6 @@
 
                 <input type="submit"  class="btn" value="Submit" />
 
-            </form>
-
-            Je me connecte
-
-
-            <form method="post"  role="form" action="{% url 'login' %}">
-            {% csrf_token %}
-                                <input type="text" name="username_for_log" placeholder="Pseudo" />
-                                <input type="password" name="password_for_log" placeholder="Mot de passe" />
-
-            <input type="submit" value="Connexion" /></form>
             {% if invalid_auth %}
             Problème de connexion. Contactez nosbrouillons@gmail.com si le problème se veut aussi insoluble que du mauvais café.
             {% endif %}
