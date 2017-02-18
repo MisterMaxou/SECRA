@@ -1,2 +1,4 @@
 django==1.9.7
-tinymce
+django-tinymce
+django-xmpp
+
