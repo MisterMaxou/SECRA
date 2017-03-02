@@ -81,12 +81,8 @@ def co_user_2(request):
 def not_found_error(request):
    return render(request, 'main/not_found_error.html')
 
-# def delete(request, link):
-#     work = Work.objects.filter(link=link)[0]
-#     user_has_rights = request.user.is_staff() or work.user == request.user
-#     if user_has_rights:
-#         work.delete()
-#     return user_has_rights
 
+def cgu(request):
+   return render(request, 'main/cgu.html')
 
 
