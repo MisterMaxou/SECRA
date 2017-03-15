@@ -94,7 +94,16 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+if PROD:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'mistermax$default',
+            'USER': 'mistermax',
+            'PASSWORD': 'Mcsuaptesbuf!!!1302',
+            'HOST': 'mistermax.mysql.pythonanywhere-services.com',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -201,7 +210,4 @@ CONVERSEJS_AUTO_REGISTER = 'xmpp.nosbrouillons.com'
 
 
 
-SOUTH_DATABASE_ADAPTERS = {
-    'default': 'south.db.sqlite3'
-}
 ### END OF PART ###
