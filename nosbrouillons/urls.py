@@ -34,7 +34,6 @@ urlpatterns = [
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^', include('main.urls')),
     # url(r'^xmpp/', include("xmpp.urls")),
-    url(r'^chat/', include('chatrooms.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

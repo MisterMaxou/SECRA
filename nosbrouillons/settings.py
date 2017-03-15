@@ -50,9 +50,6 @@ INSTALLED_APPS = [
     'django_gravatar',
     # 'xmpp',
     # 'conversejs' not working, too old
-
-    'polymorphic',
-    'chatrooms',
 ]
 
 MIDDLEWARE_CLASSES = [
