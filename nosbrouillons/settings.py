@@ -29,6 +29,9 @@ DEBUG = not PROD
 
 ALLOWED_HOSTS = ['*']
 
+if os.getenv('SL_PUBLIC_URL'):
+    ALLOWED_HOSTS.append(os.getenv('SL_PUBLIC_URL'))
+
 
 # Application definition
 
@@ -50,6 +53,11 @@ INSTALLED_APPS = [
     'django_gravatar',
     # 'xmpp',
     # 'conversejs' not working, too old
+
+    ################################
+
+    'channels',
+    'chat',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -214,3 +222,18 @@ MEDIA_URL = '/assets/media/'
 
 
 ### END OF PART ###
+
+
+##########################################
+
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'asgi_redis.RedisChannelLayer',
+        'ROUTING': 'django_channels.routing.channel_routing',
+        'CONFIG': {
+            'hosts': [('redis', 6379), ],
+        },
+    },
+}
+

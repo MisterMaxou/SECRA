@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from nosbrouillons import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 import tinymce
+from chat.views import chat_view
 
 
 
@@ -34,6 +35,8 @@ urlpatterns = [
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^', include('main.urls')),
     # url(r'^xmpp/', include("xmpp.urls")),
+
+    url(r'^chat/', chat_view),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
