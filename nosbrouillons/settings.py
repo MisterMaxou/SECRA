@@ -200,4 +200,8 @@ CONVERSEJS_BOSH_SERVICE_URL = 'https://my-bosh-service.com'
 CONVERSEJS_AUTO_REGISTER = 'xmpp.nosbrouillons.com'
 
 
+
+SOUTH_DATABASE_ADAPTERS = {
+    'default': 'south.db.sqlite3'
+}
 ### END OF PART ###
