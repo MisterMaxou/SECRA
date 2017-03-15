@@ -196,6 +196,8 @@ XMPP_CONVERSEJS_SETTINGS = {
 }
 
 XMPP_ENABLED = True
+CONVERSEJS_BOSH_SERVICE_URL = 'https://my-bosh-service.com'
+CONVERSEJS_AUTO_REGISTER = 'xmpp.nosbrouillons.com'
 
 
 ### END OF PART ###
