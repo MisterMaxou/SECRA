@@ -230,7 +230,7 @@ MEDIA_URL = '/assets/media/'
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'asgi_redis.RedisChannelLayer',
-        'ROUTING': 'django_channels.routing.channel_routing',
+        'ROUTING': 'nosbrouillons.routing.channel_routing',
         'CONFIG': {
             'hosts': [('redis', 6379), ],
         },
