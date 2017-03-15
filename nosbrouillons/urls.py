@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^contribute/', include('contribute.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^', include('main.urls')),
-    # url(r'^xmpp/', include("xmpp.urls")),
+    url(r'^xmpp/', include("xmpp.urls")),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
