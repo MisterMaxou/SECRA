@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'contribute',
     'django_gravatar',
     'xmpp',
+    'conversejs'
 ]
 
 MIDDLEWARE_CLASSES = [
