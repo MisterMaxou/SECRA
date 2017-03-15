@@ -51,13 +51,7 @@ INSTALLED_APPS = [
     'work',
     'contribute',
     'django_gravatar',
-    # 'xmpp',
-    # 'conversejs' not working, too old
 
-    ################################
-
-    'channels',
-    'chat',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -181,59 +175,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "assets/media/")
 
 MEDIA_URL = '/assets/media/'
 
-
-### CONVERSE PART ###
-
-# XMPP_DOMAIN = 'nosbrouillons.com'if PROD else 'localhost:5050'
-# XMPP_BOSH_SERVICE_URL = 'https://xmpp.nosbrouillons.com:5280/http-bind' if PROD else 'localhost:5050'
-
-# # # Optionally setup ConverseJS to suit your needs:
-
-# XMPP_CONVERSEJS_SETTINGS = {
-#  'allow_contact_removal': False,
-#  'allow_contact_requests': True,
-#  'auto_subscribe': True,
-#  'allow_logout': False,
-#  'allow_muc': True,
-#  'allow_otr': False,
-#  'allow_registration': False,
-#  'message_carbons': True,
-#  'hide_muc_server': True,
-#  'use_vcards': True,
-#  'animate': True,
-#  'play_sounds': True,
-#  'xhr_user_search': True,
-#  'sounds_path': '%ssounds/' % STATIC_URL,
-#  'visible_toolbar_buttons': {
-#       'call': False,
-#       'clear': False,
-#       'emoticons': True,
-#       'toggle_participants': False,
-#  }
-# }
-
-# XMPP_ENABLED = True
-# CONVERSEJS_BOSH_SERVICE_URL = 'https://my-bosh-service.com'
-# CONVERSEJS_AUTO_REGISTER = 'xmpp.nosbrouillons.com'
-
-# SOUTH_DATABASE_ADAPTERS = {
-#     'default': "south.db.mysql"
-# }
-
-
-### END OF PART ###
-
-
-##########################################
-
-
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'asgi_redis.RedisChannelLayer',
-        'ROUTING': 'nosbrouillons.routing.channel_routing',
-        'CONFIG': {
-            'hosts': [('redis', 6379), ],
-        },
-    },
-}
 
